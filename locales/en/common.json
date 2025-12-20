@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "AutoAI Synergy | AI Automation Agency - Custom AI Solutions for Business",
+    "description": "Transform your business with custom AI agents, intelligent automation, and cutting-edge applications. AutoAI Synergy helps companies save time, reduce costs, and scale faster with bespoke AI solutions.",
+    "keywords": "AI automation agency, custom AI solutions, business automation, AI agents, chatbots, workflow automation, AI development, machine learning solutions"
+  },
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "testimonials": "Results",
+    "contact": "Contact",
+    "bookCall": "Book a Call"
+  },
+  "hero": {
+    "badge": "AI-Powered Business Transformation",
+    "title": "Stop Wasting Time on",
+    "titleHighlight": "Repetitive Tasks",
+    "subtitle": "We build custom AI agents, intelligent automations, and applications that work 24/7—so your team can focus on what actually grows your business.",
+    "cta": "Book Your Free Strategy Call",
+    "ctaSecondary": "See Our Solutions",
+    "stats": {
+      "hours": {
+        "value": "500+",
+        "label": "Hours Saved Monthly"
+      },
+      "roi": {
+        "value": "3-10x",
+        "label": "Average ROI"
+      },
+      "clients": {
+        "value": "50+",
+        "label": "Happy Clients"
+      }
+    }
+  },
+  "problems": {
+    "title": "Sound Familiar?",
+    "subtitle": "These challenges are costing you time, money, and growth opportunities",
+    "items": [
+      {
+        "title": "Drowning in Manual Tasks",
+        "description": "Your team spends hours on data entry, email responses, and repetitive processes that could be automated."
+      },
+      {
+        "title": "Missing Customer Inquiries",
+        "description": "Leads slip through the cracks because you can't respond 24/7 or scale your support team fast enough."
+      },
+      {
+        "title": "Scattered Workflows",
+        "description": "Your tools don't talk to each other, creating bottlenecks and duplicate work across teams."
+      },
+      {
+        "title": "Scaling Challenges",
+        "description": "Growing means hiring more people for the same tasks instead of building systems that scale."
+      }
+    ]
+  },
+  "services": {
+    "badge": "What We Build",
+    "title": "AI Solutions That",
+    "titleHighlight": "Actually Work",
+    "subtitle": "Custom-built automation and AI systems designed specifically for your business needs",
+    "items": [
+      {
+        "icon": "Bot",
+        "title": "AI Agents",
+        "description": "Intelligent agents that handle customer service, sales outreach, research, and complex multi-step tasks autonomously.",
+        "features": ["24/7 Operation", "Natural Conversations", "Task Automation", "Learning Capability"]
+      },
+      {
+        "icon": "Globe",
+        "title": "AI-Powered Websites",
+        "description": "Modern, high-converting websites with built-in AI chatbots, personalization, and intelligent lead capture.",
+        "features": ["Smart Chatbots", "Lead Qualification", "Personalization", "Analytics"]
+      },
+      {
+        "icon": "Workflow",
+        "title": "Workflow Automation",
+        "description": "Connect your tools and automate complex workflows. From CRM updates to invoice processing to data sync.",
+        "features": ["500+ Integrations", "Custom Workflows", "Error Handling", "Real-time Sync"]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Custom Applications",
+        "description": "Bespoke AI-powered applications tailored to your unique business processes and requirements.",
+        "features": ["Custom UI/UX", "API Integration", "Scalable Architecture", "Ongoing Support"]
+      },
+      {
+        "icon": "MessageSquare",
+        "title": "Intelligent Chatbots",
+        "description": "Advanced conversational AI for your website, WhatsApp, Telegram, and other platforms.",
+        "features": ["Multi-platform", "Knowledge Base", "Lead Capture", "Human Handoff"]
+      },
+      {
+        "icon": "Zap",
+        "title": "Process Optimization",
+        "description": "Analyze your current processes and implement AI-driven improvements for maximum efficiency.",
+        "features": ["Process Audit", "AI Implementation", "Training", "Ongoing Optimization"]
+      }
+    ],
+    "cta": "Discuss Your Project"
+  },
+  "process": {
+    "badge": "How We Work",
+    "title": "From Idea to",
+    "titleHighlight": "Implementation",
+    "subtitle": "A proven process that delivers results without the complexity",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery Call",
+        "description": "We analyze your current workflows, identify automation opportunities, and map out potential ROI. No obligation, just insights.",
+        "duration": "30 min call"
+      },
+      {
+        "number": "02",
+        "title": "Solution Design",
+        "description": "Our team designs a custom solution tailored to your specific needs, tech stack, and goals. You approve before we build.",
+        "duration": "3-5 days"
+      },
+      {
+        "number": "03",
+        "title": "Build & Integrate",
+        "description": "We develop your AI solution, integrate it with your existing tools, and ensure everything works flawlessly together.",
+        "duration": "1-4 weeks"
+      },
+      {
+        "number": "04",
+        "title": "Launch & Optimize",
+        "description": "Go live with full support. We monitor performance, gather feedback, and continuously optimize for better results.",
+        "duration": "Ongoing"
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Client Results",
+    "title": "Real Results From",
+    "titleHighlight": "Real Businesses",
+    "subtitle": "See how companies like yours transformed their operations with our AI solutions",
+    "items": [
+      {
+        "quote": "AutoAI Synergy built us an AI agent that handles 80% of our customer inquiries automatically. Our response time went from hours to seconds.",
+        "author": "Sarah M.",
+        "role": "Operations Director",
+        "company": "E-commerce Brand",
+        "metric": "80% automated responses"
+      },
+      {
+        "quote": "The workflow automation they implemented saves our team 40 hours every week. We can finally focus on strategy instead of data entry.",
+        "author": "David K.",
+        "role": "CEO",
+        "company": "Marketing Agency",
+        "metric": "40 hours saved weekly"
+      },
+      {
+        "quote": "Our new AI-powered website converts 3x better than our old one. The intelligent chatbot qualifies leads before they even reach our sales team.",
+        "author": "Michelle R.",
+        "role": "Founder",
+        "company": "SaaS Startup",
+        "metric": "3x conversion rate"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "subtitle": "Book a free 30-minute strategy call. We'll analyze your workflows and show you exactly how AI can save you time and money.",
+    "button": "Book Your Free Strategy Call",
+    "buttonWhatsapp": "Chat on WhatsApp",
+    "noObligation": "No obligation • No hard sell • Just valuable insights"
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "Let's Build Your",
+    "titleHighlight": "AI Solution",
+    "subtitle": "Fill out the form or reach out directly. We typically respond within 2 hours during business hours.",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "John Smith",
+      "email": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company Name",
+      "companyPlaceholder": "Your Company",
+      "service": "What do you need?",
+      "servicePlaceholder": "Select a service",
+      "serviceOptions": {
+        "agents": "AI Agents",
+        "website": "AI-Powered Website",
+        "automation": "Workflow Automation",
+        "chatbot": "Chatbot",
+        "application": "Custom Application",
+        "other": "Other / Not Sure"
+      },
+      "message": "Tell us about your project",
+      "messagePlaceholder": "Describe your current challenges, what you'd like to automate, and any specific requirements...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent successfully! We'll be in touch soon.",
+      "error": "Something went wrong. Please try again or contact us directly."
+    },
+    "direct": {
+      "title": "Or Reach Us Directly",
+      "whatsapp": "WhatsApp Us",
+      "email": "Email Us",
+      "location": "Tel Aviv, Israel"
+    }
+  },
+  "footer": {
+    "description": "Transforming businesses with custom AI solutions, intelligent automation, and cutting-edge technology.",
+    "services": "Services",
+    "company": "Company",
+    "legal": "Legal",
+    "about": "About Us",
+    "blog": "Blog",
+    "careers": "Careers",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2024 AutoAI Synergy. All rights reserved.",
+    "tagline": "Built with AI, Delivered with Excellence"
+  },
+  "whatsapp": {
+    "defaultMessage": "Hi! I'm interested in learning more about your AI automation services."
+  }
+}

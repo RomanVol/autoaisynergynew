@@ -140,7 +140,7 @@ export function Services({ locale }: ServicesProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            {t.title}
+            <span className="text-white">{t.title}</span>
             <span className="text-liquid-gold"> {t.titleHighlight}</span>
           </motion.h2>
 
@@ -184,7 +184,7 @@ export function Services({ locale }: ServicesProps) {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-display font-semibold text-noir-100 mb-3
+                  <h3 className="text-xl font-display font-semibold text-noir-800 dark:text-noir-100 mb-3
                                group-hover:text-gold-400 transition-colors duration-300">
                     {service.title}
                   </h3>

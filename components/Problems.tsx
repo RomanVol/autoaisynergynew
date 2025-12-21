@@ -98,7 +98,7 @@ export function Problems({ locale }: ProblemsProps) {
             transition={{ delay: 0.1 }}
             className="section-title"
           >
-            {t.title}
+            <span className="text-white">{t.title}</span>
             <span className="text-red-400"> {t.titleHighlight}</span>
           </motion.h2>
         </div>

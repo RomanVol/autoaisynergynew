@@ -3,8 +3,19 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Sparkles, Zap, Users, Clock } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRef } from 'react'
 import { Locale, localeDirections } from '@/lib/i18n/settings'
+
+// Floating logo configuration for the animated background
+const floatingLogos = [
+  { id: 1, size: 280, x: '-15%', y: '-10%', duration: 25, delay: 0, rotation: 15 },
+  { id: 2, size: 200, x: '75%', y: '15%', duration: 30, delay: 2, rotation: -10 },
+  { id: 3, size: 160, x: '85%', y: '60%', duration: 28, delay: 4, rotation: 20 },
+  { id: 4, size: 220, x: '-5%', y: '70%', duration: 32, delay: 1, rotation: -15 },
+  { id: 5, size: 120, x: '50%', y: '5%', duration: 22, delay: 3, rotation: 8 },
+  { id: 6, size: 100, x: '30%', y: '80%', duration: 26, delay: 5, rotation: -12 },
+]
 
 const translations = {
   en: {
@@ -60,48 +71,72 @@ export function Hero({ locale }: HeroProps) {
       ref={containerRef}
       className="relative min-h-[100vh] flex items-center overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-noir-900" />
+      {/* Background - Light cream in light mode, Dark noir in dark mode */}
+      <div className="absolute inset-0 bg-[#FDFCFA] dark:bg-noir-900 transition-colors duration-500" />
 
-      {/* Animated Liquid Blobs */}
+      {/* Floating Animated Logo Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {floatingLogos.map((logo) => (
+          <motion.div
+            key={logo.id}
+            className="absolute"
+            style={{
+              left: logo.x,
+              top: logo.y,
+              width: logo.size,
+              height: logo.size,
+            }}
+            initial={{
+              opacity: 0,
+              scale: 0.8,
+              rotate: logo.rotation
+            }}
+            animate={{
+              opacity: [0.15, 0.3, 0.15],
+              scale: [1, 1.05, 1],
+              rotate: [logo.rotation, logo.rotation + 5, logo.rotation],
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: logo.duration,
+              delay: logo.delay,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            {/* Logo with glow effect for dark mode, shadow for light mode */}
+            <div className="relative w-full h-full floating-logo-container">
+              {/* Glow effect layer (dark mode) */}
+              <div
+                className="absolute inset-0 blur-2xl scale-110 transition-opacity duration-500 logo-glow"
+              />
+              {/* Logo image - inverts based on theme */}
+              <Image
+                src="/logo_full.svg"
+                alt=""
+                fill
+                className="object-contain transition-all duration-500 floating-logo-img"
+                priority={logo.id <= 2}
+              />
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Additional ambient glow orbs for atmosphere */}
         <motion.div
-          className="liquid-blob w-[600px] h-[600px] bg-gold-400/30 -top-[200px] -left-[200px]"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 50,
-            repeat: Infinity,
-            ease: 'linear'
-          }}
+          className="absolute w-[600px] h-[600px] -top-[200px] -left-[200px] rounded-full dark:bg-gold-400/10 bg-gold-400/5 blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="liquid-blob w-[500px] h-[500px] bg-amber-400/20 top-[40%] -right-[100px]"
-          animate={{
-            rotate: [360, 0],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: 'linear'
-          }}
-        />
-        <motion.div
-          className="liquid-blob w-[400px] h-[400px] bg-gold-400/20 bottom-[5%] left-[20%]"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 45,
-            repeat: Infinity,
-            ease: 'linear'
-          }}
+          className="absolute w-[500px] h-[500px] top-[40%] -right-[150px] rounded-full dark:bg-amber-400/10 bg-amber-400/5 blur-[80px]"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.2, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </div>
 
       {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-50" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-50 dark:opacity-50" />
 
       {/* Content Container */}
       <motion.div
@@ -130,7 +165,7 @@ export function Hero({ locale }: HeroProps) {
             className="mb-8"
           >
             <h1 className="font-display font-semibold tracking-tight">
-              <span className="block text-[clamp(3rem,8vw,6rem)] leading-[0.95] text-noir-100">
+              <span className="block text-[clamp(3rem,8vw,6rem)] leading-[0.95] text-noir-800 dark:text-noir-100 transition-colors duration-500 mb-4">
                 {t.title}
               </span>
               <span className="block text-[clamp(3rem,8vw,6rem)] leading-[0.95] text-liquid-gold-animated">
@@ -144,7 +179,7 @@ export function Hero({ locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-noir-300 max-w-2xl leading-relaxed mb-12 font-body"
+            className="text-xl md:text-2xl text-noir-600 dark:text-noir-300 max-w-2xl leading-relaxed mb-12 font-body transition-colors duration-500"
           >
             {t.subtitle}
           </motion.p>
@@ -172,7 +207,7 @@ export function Hero({ locale }: HeroProps) {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-              <p className="text-sm text-noir-400 uppercase tracking-widest font-display whitespace-nowrap">
+              <p className="text-sm text-noir-500 dark:text-noir-400 uppercase tracking-widest font-display whitespace-nowrap transition-colors duration-500">
                 {t.trusted}
               </p>
 
@@ -188,7 +223,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.hours.value}
                     </div>
-                    <div className="text-sm text-noir-400">
+                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
                       {t.stats.hours.label}
                     </div>
                   </div>
@@ -203,7 +238,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.roi.value}
                     </div>
-                    <div className="text-sm text-noir-400">
+                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
                       {t.stats.roi.label}
                     </div>
                   </div>
@@ -218,7 +253,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.clients.value}
                     </div>
-                    <div className="text-sm text-noir-400">
+                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
                       {t.stats.clients.label}
                     </div>
                   </div>
@@ -239,8 +274,8 @@ export function Hero({ locale }: HeroProps) {
         <div className="scroll-indicator" />
       </motion.div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-noir-900 to-transparent pointer-events-none" />
+      {/* Bottom Gradient Fade - Theme aware */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FDFCFA] dark:from-noir-900 to-transparent pointer-events-none transition-colors duration-500" />
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { getTranslation } from '@/lib/i18n'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }))
@@ -107,7 +108,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} dir={dir} className="scroll-smooth">
+    <html lang={locale} dir={dir} className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -116,19 +117,21 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`bg-noir-950 text-noir-100 ${dir === 'rtl' ? 'font-hebrew' : 'font-body'}`}>
-        {/* Noise texture overlay */}
-        <div className="noise-overlay" aria-hidden="true" />
+      <body className={`${dir === 'rtl' ? 'font-hebrew' : 'font-body'}`}>
+        <ThemeProvider>
+          {/* Noise texture overlay */}
+          <div className="noise-overlay" aria-hidden="true" />
 
-        {/* Grid pattern background */}
-        <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40" aria-hidden="true" />
+          {/* Grid pattern background */}
+          <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40" aria-hidden="true" />
 
-        <Header locale={locale} />
-        <main className="relative z-10">
-          {children}
-        </main>
-        <Footer locale={locale} />
-        <WhatsAppButton locale={locale} />
+          <Header locale={locale} />
+          <main className="relative z-10">
+            {children}
+          </main>
+          <Footer locale={locale} />
+          <WhatsAppButton locale={locale} />
+        </ThemeProvider>
       </body>
     </html>
   )

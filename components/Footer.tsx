@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Sparkles, Linkedin, Twitter, MessageCircle } from 'lucide-react'
 import { Locale, localeDirections } from '@/lib/i18n/settings'
 
@@ -60,7 +61,7 @@ export function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-noir-950 border-t border-gold-400/10">
+    <footer className="relative bg-[#F0EDE6] dark:bg-noir-950 border-t border-noir-200 dark:border-gold-400/10 transition-colors duration-500">
       {/* Gradient Top Border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
 
@@ -69,15 +70,19 @@ export function Footer({ locale }: FooterProps) {
           {/* Brand Column */}
           <div className={`lg:col-span-1 ${isRTL ? 'text-right' : 'text-left'}`}>
             <Link href={`/${locale}`} className={`flex items-center gap-3 mb-5 ${isRTL ? 'flex-row-reverse justify-end' : ''}`}>
-              <div className="w-10 h-10 rounded-xl bg-gold-gradient flex items-center justify-center shadow-gold">
-                <Sparkles className="w-5 h-5 text-noir-900" />
-              </div>
+              <Image
+                src="/logo_full.svg"
+                alt="AutoAI Synergy"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
               <span className="text-xl font-display font-semibold">
                 <span className="text-liquid-gold">AutoAI</span>
-                <span className="text-noir-300"> Synergy</span>
+                <span className="text-noir-600 dark:text-noir-300 transition-colors duration-500"> Synergy</span>
               </span>
             </Link>
-            <p className="text-noir-400 text-sm leading-relaxed mb-6 font-body">
+            <p className="text-noir-500 dark:text-noir-400 text-sm leading-relaxed mb-6 font-body transition-colors duration-500">
               {t.description}
             </p>
 
@@ -87,9 +92,9 @@ export function Footer({ locale }: FooterProps) {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-noir-800/50 border border-noir-700/50
-                          flex items-center justify-center text-noir-400
-                          hover:text-green-400 hover:border-green-500/30 hover:bg-green-500/10
+                className="w-10 h-10 rounded-xl bg-noir-200/50 dark:bg-noir-800/50 border border-noir-300/50 dark:border-noir-700/50
+                          flex items-center justify-center text-noir-500 dark:text-noir-400
+                          hover:text-green-500 dark:hover:text-green-400 hover:border-green-500/30 hover:bg-green-500/10
                           transition-all duration-300"
                 aria-label="WhatsApp"
               >
@@ -99,9 +104,9 @@ export function Footer({ locale }: FooterProps) {
                 href="https://linkedin.com/company/autoaisynergy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-noir-800/50 border border-noir-700/50
-                          flex items-center justify-center text-noir-400
-                          hover:text-gold-400 hover:border-gold-400/30 hover:bg-gold-400/10
+                className="w-10 h-10 rounded-xl bg-noir-200/50 dark:bg-noir-800/50 border border-noir-300/50 dark:border-noir-700/50
+                          flex items-center justify-center text-noir-500 dark:text-noir-400
+                          hover:text-gold-500 dark:hover:text-gold-400 hover:border-gold-400/30 hover:bg-gold-400/10
                           transition-all duration-300"
                 aria-label="LinkedIn"
               >
@@ -111,9 +116,9 @@ export function Footer({ locale }: FooterProps) {
                 href="https://twitter.com/autoaisynergy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-noir-800/50 border border-noir-700/50
-                          flex items-center justify-center text-noir-400
-                          hover:text-gold-400 hover:border-gold-400/30 hover:bg-gold-400/10
+                className="w-10 h-10 rounded-xl bg-noir-200/50 dark:bg-noir-800/50 border border-noir-300/50 dark:border-noir-700/50
+                          flex items-center justify-center text-noir-500 dark:text-noir-400
+                          hover:text-gold-500 dark:hover:text-gold-400 hover:border-gold-400/30 hover:bg-gold-400/10
                           transition-all duration-300"
                 aria-label="Twitter"
               >
@@ -124,7 +129,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Services Column */}
           <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h4 className="text-noir-100 font-display font-semibold mb-5">
+            <h4 className="text-noir-800 dark:text-noir-100 font-display font-semibold mb-5 transition-colors duration-500">
               {t.services}
             </h4>
             <ul className="space-y-3">
@@ -132,7 +137,7 @@ export function Footer({ locale }: FooterProps) {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body"
+                    className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body"
                   >
                     {link.label}
                   </Link>
@@ -143,22 +148,22 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Company Column */}
           <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h4 className="text-noir-100 font-display font-semibold mb-5">
+            <h4 className="text-noir-800 dark:text-noir-100 font-display font-semibold mb-5 transition-colors duration-500">
               {t.company}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.about}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.blog}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.careers}
                 </Link>
               </li>
@@ -167,17 +172,17 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Legal Column */}
           <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h4 className="text-noir-100 font-display font-semibold mb-5">
+            <h4 className="text-noir-800 dark:text-noir-100 font-display font-semibold mb-5 transition-colors duration-500">
               {t.legal}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-noir-400 hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.terms}
                 </Link>
               </li>
@@ -186,12 +191,12 @@ export function Footer({ locale }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-noir-800/50">
+        <div className="mt-12 pt-8 border-t border-noir-300/50 dark:border-noir-800/50 transition-colors duration-500">
           <div className={`flex flex-col md:flex-row items-center justify-between gap-4 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-            <p className="text-noir-500 text-sm font-body">
+            <p className="text-noir-500 dark:text-noir-500 text-sm font-body transition-colors duration-500">
               {t.copyright.replace('2024', currentYear.toString())}
             </p>
-            <p className="text-noir-500 text-sm flex items-center gap-2 font-body">
+            <p className="text-noir-500 dark:text-noir-500 text-sm flex items-center gap-2 font-body transition-colors duration-500">
               <Sparkles className="w-4 h-4 text-gold-400" />
               {t.tagline}
             </p>

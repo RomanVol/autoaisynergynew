@@ -101,7 +101,7 @@ export function Testimonials({ locale }: TestimonialsProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            {t.title}
+            <span className="text-white">{t.title}</span>
             <span className="text-liquid-gold"> {t.titleHighlight}</span>
           </motion.h2>
 

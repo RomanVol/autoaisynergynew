@@ -120,7 +120,7 @@ export function Process({ locale }: ProcessProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            {t.title}
+            <span className="text-white">{t.title}</span>
             <span className="text-liquid-gold"> {t.titleHighlight}</span>
           </motion.h2>
 
@@ -131,7 +131,7 @@ export function Process({ locale }: ProcessProps) {
             transition={{ delay: 0.2 }}
             className="section-subtitle mx-auto"
           >
-            {t.subtitle}
+            <span className="text-white dark:text-noir-400">{t.subtitle}</span>
           </motion.p>
         </div>
 
@@ -173,7 +173,7 @@ export function Process({ locale }: ProcessProps) {
                 {/* Step Content */}
                 <div className={`glass-card p-6 md:p-8 flex-1 group ${isRTL ? 'text-right' : 'text-left'}`}>
                   <div className={`flex flex-col sm:flex-row sm:items-center gap-3 mb-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
-                    <h3 className="text-xl font-display font-semibold text-noir-100
+                    <h3 className="text-xl font-display font-semibold text-noir-800 dark:text-noir-100
                                  group-hover:text-gold-400 transition-colors duration-300">
                       {step.title}
                     </h3>

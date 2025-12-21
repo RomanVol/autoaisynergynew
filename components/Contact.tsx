@@ -121,7 +121,7 @@ export function Contact({ locale }: ContactProps) {
   }
 
   return (
-    <section id="contact" className="section-container bg-noir-950">
+    <section id="contact" className="section-container bg-[#F0EDE6] dark:bg-noir-950 transition-colors duration-500">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="section-header text-center max-w-3xl mx-auto">
@@ -170,7 +170,7 @@ export function Contact({ locale }: ContactProps) {
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-300 mb-2.5
+                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.name}
                       </label>
@@ -185,7 +185,7 @@ export function Contact({ locale }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-300 mb-2.5
+                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.email}
                       </label>
@@ -204,7 +204,7 @@ export function Contact({ locale }: ContactProps) {
                   {/* Company & Service */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-300 mb-2.5
+                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.company}
                       </label>
@@ -218,7 +218,7 @@ export function Contact({ locale }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-300 mb-2.5
+                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.service}
                       </label>
@@ -241,7 +241,7 @@ export function Contact({ locale }: ContactProps) {
 
                   {/* Message */}
                   <div>
-                    <label className={`block text-sm font-display font-medium text-noir-300 mb-2.5
+                    <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                       ${isRTL ? 'text-right' : 'text-left'}`}>
                       {t.form.message}
                     </label>
@@ -310,7 +310,7 @@ export function Contact({ locale }: ContactProps) {
               className="lg:col-span-2 space-y-6"
             >
               <div className={`glass-card p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <h3 className="text-lg font-display font-semibold text-noir-100 mb-6">
+                <h3 className="text-lg font-display font-semibold text-noir-800 dark:text-noir-100 mb-6 transition-colors duration-500">
                   {t.direct.title}
                 </h3>
 
@@ -330,10 +330,10 @@ export function Contact({ locale }: ContactProps) {
                       <MessageCircle className="w-5 h-5 text-green-400" />
                     </div>
                     <div>
-                      <div className="font-display font-semibold text-noir-100">
+                      <div className="font-display font-semibold text-noir-800 dark:text-noir-100 transition-colors duration-500">
                         {t.direct.whatsapp}
                       </div>
-                      <div className="text-sm text-noir-400" dir="ltr">
+                      <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500" dir="ltr">
                         +{WHATSAPP_NUMBER.replace(/(\d{3})(\d{2})(\d{3})(\d{4})/, '$1 $2 $3 $4')}
                       </div>
                     </div>
@@ -352,10 +352,10 @@ export function Contact({ locale }: ContactProps) {
                       <Mail className="w-5 h-5 text-gold-400" />
                     </div>
                     <div>
-                      <div className="font-display font-semibold text-noir-100">
+                      <div className="font-display font-semibold text-noir-800 dark:text-noir-100 transition-colors duration-500">
                         {t.direct.email}
                       </div>
-                      <div className="text-sm text-noir-400" dir="ltr">
+                      <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500" dir="ltr">
                         {EMAIL}
                       </div>
                     </div>
@@ -363,15 +363,15 @@ export function Contact({ locale }: ContactProps) {
 
                   {/* Location */}
                   <div className={`flex items-center gap-4 p-4 rounded-2xl
-                                 bg-noir-700/30 border border-noir-600/30 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <div className="w-12 h-12 rounded-xl bg-noir-600/30 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-noir-300" />
+                                 bg-noir-200/50 dark:bg-noir-700/30 border border-noir-300/50 dark:border-noir-600/30 transition-colors duration-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <div className="w-12 h-12 rounded-xl bg-noir-300/50 dark:bg-noir-600/30 flex items-center justify-center transition-colors duration-500">
+                      <MapPin className="w-5 h-5 text-noir-500 dark:text-noir-300 transition-colors duration-500" />
                     </div>
                     <div>
-                      <div className="font-display font-semibold text-noir-100">
+                      <div className="font-display font-semibold text-noir-800 dark:text-noir-100 transition-colors duration-500">
                         {t.direct.location}
                       </div>
-                      <div className="text-sm text-noir-400">
+                      <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
                         Israel
                       </div>
                     </div>
@@ -382,7 +382,7 @@ export function Contact({ locale }: ContactProps) {
               {/* Response Time */}
               <div className="glass-card p-6 text-center">
                 <div className="text-4xl mb-2">⚡</div>
-                <div className="text-noir-300 text-sm font-display">
+                <div className="text-noir-600 dark:text-noir-300 text-sm font-display transition-colors duration-500">
                   {locale === 'en' ? 'Average response: 2 hours' : 'זמן תגובה ממוצע: שעתיים'}
                 </div>
               </div>

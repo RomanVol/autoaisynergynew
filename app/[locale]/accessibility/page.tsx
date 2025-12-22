@@ -56,7 +56,7 @@ const translations: Record<Locale, PageCopy> = {
       {
         heading: 'Feedback & Support',
         paragraphs: [
-          'If you encounter an accessibility issue or need assistance, contact us at contact@autoaisynergy.com and we will respond promptly.',
+          'If you encounter an accessibility issue or need assistance, contact us at romavolman@gmail.com and we will respond promptly.',
         ],
       },
     ],
@@ -100,7 +100,7 @@ const translations: Record<Locale, PageCopy> = {
       {
         heading: 'משוב ותמיכה',
         paragraphs: [
-          'אם נתקלתם בבעיה או שאתם צריכים סיוע, תוכלו לפנות אלינו בכתובת contact@autoaisynergy.com ונשמח לסייע.',
+          'אם נתקלתם בבעיה או שאתם צריכים סיוע, תוכלו לפנות אלינו בכתובת romavolman@gmail.com ונשמח לסייע.',
         ],
       },
     ],

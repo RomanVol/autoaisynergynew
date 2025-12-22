@@ -62,8 +62,8 @@ const translations = {
   },
   he: {
     label: 'מה אנחנו בונים',
-    title: 'פתרונות AI ש',
-    titleHighlight: 'משנים את העסק',
+    title: 'פתרונות AI ',
+    titleHighlight: 'שמשנים את העסק',
     subtitle: 'מערכות אוטומציה מותאמות אישית שנבנו לפתור אתגרים עסקיים אמיתיים ולספק ROI מדיד.',
     cta: 'התחילו פרויקט',
     items: [
@@ -140,7 +140,7 @@ export function Services({ locale }: ServicesProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            <span className="text-white">{t.title}</span>
+            <span className="text-white force-contrast">{t.title}</span>
             <span className="text-liquid-gold whitespace-nowrap"> {t.titleHighlight}</span>
           </motion.h2>
 

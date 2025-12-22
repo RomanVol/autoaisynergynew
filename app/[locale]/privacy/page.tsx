@@ -133,7 +133,7 @@ const translations: Record<Locale, PageCopy> = {
       {
         heading: 'Contact Us',
         paragraphs: [
-          'For questions or requests related to privacy, contact us at contact@autoaisynergy.com.',
+          'For questions or requests related to privacy, contact us at romavolman@gmail.com.',
         ],
       },
     ],
@@ -254,7 +254,7 @@ const translations: Record<Locale, PageCopy> = {
       {
         heading: 'יצירת קשר',
         paragraphs: [
-          'לשאלות או בקשות הקשורות לפרטיות, ניתן לפנות אלינו בכתובת contact@autoaisynergy.com.',
+          'לשאלות או בקשות הקשורות לפרטיות, ניתן לפנות אלינו בכתובת romavolman@gmail.com.',
         ],
       },
     ],

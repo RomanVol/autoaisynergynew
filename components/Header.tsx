@@ -7,6 +7,7 @@ import { Menu, X, Sparkles } from 'lucide-react'
 import { Locale, localeDirections } from '@/lib/i18n/settings'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeSwitcher } from './ThemeSwitcher'
+import { AccessibilityToggle } from './AccessibilityToggle'
 import Image from 'next/image'
 
 const translations = {
@@ -45,12 +46,14 @@ export function Header({ locale }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const basePath = `/${locale}`
   const navLinks = [
-    { href: '#services', label: t.services },
-    { href: '#process', label: t.process },
-    { href: '#testimonials', label: t.testimonials },
-    { href: '#contact', label: t.contact },
+    { href: `${basePath}#services`, label: t.services },
+    { href: `${basePath}#process`, label: t.process },
+    { href: `${basePath}#testimonials`, label: t.testimonials },
+    { href: `${basePath}#contact`, label: t.contact },
   ]
+  const mobileMenuId = 'mobile-menu'
 
   return (
     <header
@@ -105,9 +108,10 @@ export function Header({ locale }: HeaderProps) {
           {/* Right side: Theme Switcher + Language Switcher + CTA */}
           <div className={`hidden lg:flex items-center gap-5 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <ThemeSwitcher />
+            <AccessibilityToggle />
             <LanguageSwitcher locale={locale} />
             <Link
-              href="#contact"
+              href={`${basePath}#contact`}
               className="btn-gold text-sm px-6 py-3"
             >
               <span>{t.bookCall}</span>
@@ -119,6 +123,8 @@ export function Header({ locale }: HeaderProps) {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-noir-600 dark:text-noir-300 hover:text-gold-500 dark:hover:text-gold-400 transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls={mobileMenuId}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -138,6 +144,7 @@ export function Header({ locale }: HeaderProps) {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="lg:hidden bg-white/95 dark:bg-noir-800/95 backdrop-blur-xl border-t border-noir-200/50 dark:border-gold-400/10 transition-colors duration-500"
+            id={mobileMenuId}
           >
             <div className="container mx-auto px-6 py-8">
               <div className={`flex flex-col gap-6 ${isRTL ? 'items-end' : 'items-start'}`}>
@@ -153,9 +160,10 @@ export function Header({ locale }: HeaderProps) {
                 ))}
                 <div className={`flex items-center gap-4 pt-4 border-t border-noir-200 dark:border-noir-700 w-full ${isRTL ? 'flex-row-reverse justify-end' : 'justify-start'}`}>
                   <ThemeSwitcher />
+                  <AccessibilityToggle />
                   <LanguageSwitcher locale={locale} />
                   <Link
-                    href="#contact"
+                    href={`${basePath}#contact`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="btn-gold text-sm px-6 py-3"
                   >

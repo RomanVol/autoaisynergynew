@@ -5,6 +5,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { MotionProvider } from '@/components/MotionProvider'
 
 export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }))
@@ -88,7 +89,7 @@ export default async function LocaleLayout({
     description: 'AI Automation Agency - Custom AI solutions, chatbots, and workflow automation for businesses.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Tel Aviv',
+      addressLocality: 'Harish',
       addressCountry: 'IL',
     },
     contactPoint: {
@@ -119,18 +120,24 @@ export default async function LocaleLayout({
       </head>
       <body className={`${dir === 'rtl' ? 'font-hebrew' : 'font-body'}`}>
         <ThemeProvider>
-          {/* Noise texture overlay */}
-          <div className="noise-overlay" aria-hidden="true" />
+          <MotionProvider>
+            <a href="#main-content" className="skip-link">
+              Skip to content
+            </a>
 
-          {/* Grid pattern background */}
-          <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40" aria-hidden="true" />
+            {/* Noise texture overlay */}
+            <div className="noise-overlay" aria-hidden="true" />
 
-          <Header locale={locale} />
-          <main className="relative z-10">
-            {children}
-          </main>
-          <Footer locale={locale} />
-          <WhatsAppButton locale={locale} />
+            {/* Grid pattern background */}
+            <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40" aria-hidden="true" />
+
+            <Header locale={locale} />
+            <main id="main-content" className="relative z-10">
+              {children}
+            </main>
+            <Footer locale={locale} />
+            <WhatsAppButton locale={locale} />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -39,7 +39,7 @@ const translations = {
       title: 'Or Reach Us Directly',
       whatsapp: 'WhatsApp Us',
       email: 'Email Us',
-      location: 'Tel Aviv, Israel',
+      location: 'Harish',
     },
     whatsappMessage: 'Hi! I\'m interested in your AI automation services.',
   },
@@ -76,14 +76,14 @@ const translations = {
       title: 'או פנו אלינו ישירות',
       whatsapp: 'וואטסאפ',
       email: 'אימייל',
-      location: 'תל אביב, ישראל',
+      location: 'חריש',
     },
     whatsappMessage: 'היי! אני מעוניין/ת בשירותי האוטומציה וה-AI שלכם.',
   },
 }
 
-const WHATSAPP_NUMBER = '972501234567'
-const EMAIL = 'contact@autoaisynergy.com'
+const WHATSAPP_NUMBER = '972546813569'
+const EMAIL = 'romavolman@gmail.com'
 
 interface ContactProps {
   locale: Locale
@@ -102,8 +102,16 @@ export function Contact({ locale }: ContactProps) {
     service: '',
     message: '',
   })
+  const formIdPrefix = `contact-${locale}`
+  const nameId = `${formIdPrefix}-name`
+  const emailId = `${formIdPrefix}-email`
+  const companyId = `${formIdPrefix}-company`
+  const serviceId = `${formIdPrefix}-service`
+  const messageId = `${formIdPrefix}-message`
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.whatsappMessage)}`
+  const whatsappDisplay = locale === 'he' ? '0546813569' : '+972546813569'
+  const locationCountry = locale === 'he' ? 'ישראל' : 'Israel'
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -166,15 +174,18 @@ export function Contact({ locale }: ContactProps) {
               className="lg:col-span-3"
             >
               <div className="glass-card p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" aria-busy={formState === 'submitting'}>
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
+                      <label
+                        htmlFor={nameId}
+                        className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.name}
                       </label>
                       <input
+                        id={nameId}
                         type="text"
                         required
                         value={formData.name}
@@ -185,11 +196,14 @@ export function Contact({ locale }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
+                      <label
+                        htmlFor={emailId}
+                        className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.email}
                       </label>
                       <input
+                        id={emailId}
                         type="email"
                         required
                         value={formData.email}
@@ -204,11 +218,14 @@ export function Contact({ locale }: ContactProps) {
                   {/* Company & Service */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
+                      <label
+                        htmlFor={companyId}
+                        className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.company}
                       </label>
                       <input
+                        id={companyId}
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -218,11 +235,14 @@ export function Contact({ locale }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
+                      <label
+                        htmlFor={serviceId}
+                        className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                         ${isRTL ? 'text-right' : 'text-left'}`}>
                         {t.form.service}
                       </label>
                       <select
+                        id={serviceId}
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className={`input-premium ${isRTL ? 'text-right' : 'text-left'}`}
@@ -241,11 +261,14 @@ export function Contact({ locale }: ContactProps) {
 
                   {/* Message */}
                   <div>
-                    <label className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
+                    <label
+                      htmlFor={messageId}
+                      className={`block text-sm font-display font-medium text-noir-600 dark:text-noir-300 mb-2.5 transition-colors duration-500
                                       ${isRTL ? 'text-right' : 'text-left'}`}>
                       {t.form.message}
                     </label>
                     <textarea
+                      id={messageId}
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -276,27 +299,31 @@ export function Contact({ locale }: ContactProps) {
                   </button>
 
                   {/* Status Messages */}
-                  {formState === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`flex items-center gap-2 text-green-400 font-display ${isRTL ? 'flex-row-reverse' : ''}`}
-                    >
-                      <CheckCircle className="w-5 h-5" />
-                      <span>{t.form.success}</span>
-                    </motion.div>
-                  )}
+                  <div aria-live="polite" aria-atomic="true">
+                    {formState === 'success' && (
+                      <motion.div
+                        role="status"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`flex items-center gap-2 text-green-400 font-display ${isRTL ? 'flex-row-reverse' : ''}`}
+                      >
+                        <CheckCircle className="w-5 h-5" />
+                        <span>{t.form.success}</span>
+                      </motion.div>
+                    )}
 
-                  {formState === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`flex items-center gap-2 text-red-400 font-display ${isRTL ? 'flex-row-reverse' : ''}`}
-                    >
-                      <AlertCircle className="w-5 h-5" />
-                      <span>{t.form.error}</span>
-                    </motion.div>
-                  )}
+                    {formState === 'error' && (
+                      <motion.div
+                        role="alert"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`flex items-center gap-2 text-red-400 font-display ${isRTL ? 'flex-row-reverse' : ''}`}
+                      >
+                        <AlertCircle className="w-5 h-5" />
+                        <span>{t.form.error}</span>
+                      </motion.div>
+                    )}
+                  </div>
                 </form>
               </div>
             </motion.div>
@@ -334,7 +361,7 @@ export function Contact({ locale }: ContactProps) {
                         {t.direct.whatsapp}
                       </div>
                       <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500" dir="ltr">
-                        +{WHATSAPP_NUMBER.replace(/(\d{3})(\d{2})(\d{3})(\d{4})/, '$1 $2 $3 $4')}
+                        {whatsappDisplay}
                       </div>
                     </div>
                   </a>
@@ -372,7 +399,7 @@ export function Contact({ locale }: ContactProps) {
                         {t.direct.location}
                       </div>
                       <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
-                        Israel
+                        {locationCountry}
                       </div>
                     </div>
                   </div>

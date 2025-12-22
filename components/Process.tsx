@@ -120,7 +120,7 @@ export function Process({ locale }: ProcessProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            <span className="text-white">{t.title}</span>
+            <span className="text-white force-contrast">{t.title}</span>
             <span className="text-liquid-gold"> {t.titleHighlight}</span>
           </motion.h2>
 
@@ -131,7 +131,7 @@ export function Process({ locale }: ProcessProps) {
             transition={{ delay: 0.2 }}
             className="section-subtitle mx-auto"
           >
-            <span className="text-white dark:text-noir-400">{t.subtitle}</span>
+            <span className="text-white dark:text-noir-400 force-contrast">{t.subtitle}</span>
           </motion.p>
         </div>
 

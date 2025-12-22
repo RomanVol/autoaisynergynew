@@ -101,8 +101,12 @@ export function Testimonials({ locale }: TestimonialsProps) {
             transition={{ delay: 0.1 }}
             className="section-title mb-6"
           >
-            <span className="text-white">{t.title}</span>
-            <span className="text-liquid-gold"> {t.titleHighlight}</span>
+            <span className="text-white force-contrast">{t.title}</span>
+            {isRTL ? (
+              <span className="block text-liquid-gold mt-2">{t.titleHighlight}</span>
+            ) : (
+              <span className="text-liquid-gold"> {t.titleHighlight}</span>
+            )}
           </motion.h2>
 
           <motion.p

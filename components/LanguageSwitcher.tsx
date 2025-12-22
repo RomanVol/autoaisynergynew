@@ -24,7 +24,7 @@ export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
       title={`Switch to ${localeNames[otherLocale]}`}
     >
       <Globe className="w-4 h-4 text-gold-400/70 group-hover:text-gold-400 transition-colors" />
-      <span className="text-sm text-white group-hover:text-gold-400 transition-colors font-display">
+      <span className="text-sm text-white force-contrast group-hover:text-gold-400 transition-colors font-display">
         {localeNames[otherLocale]}
       </span>
     </Link>

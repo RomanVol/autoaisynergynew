@@ -50,7 +50,7 @@ const translations = {
   },
 }
 
-const WHATSAPP_NUMBER = '972501234567'
+const WHATSAPP_NUMBER = '972546813569'
 
 interface FooterProps {
   locale: Locale
@@ -155,7 +155,7 @@ export function Footer({ locale }: FooterProps) {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
+                <Link href={`/${locale}/about`} className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
                   {t.about}
                 </Link>
               </li>

@@ -117,6 +117,25 @@
   a, button {
     cursor: pointer;
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  .a11y a:focus-visible,
+  .a11y button:focus-visible,
+  .a11y input:focus-visible,
+  .a11y select:focus-visible,
+  .a11y textarea:focus-visible,
+  .a11y [tabindex]:focus-visible {
+    outline-width: 3px;
+  }
 }
 
 /* Premium Component Styles */
@@ -442,6 +461,34 @@
     color: var(--color-noir-500);
   }
 
+  .skip-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    transform: translateY(-200%);
+    padding: 0.75rem 1.25rem;
+    background: var(--color-noir-100);
+    color: var(--color-noir-950);
+    border: 2px solid var(--color-gold);
+    border-radius: 999px;
+    font-weight: 600;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+  }
+
+  .dark .skip-link {
+    background: var(--color-noir-900);
+    color: var(--color-noir-100);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  .light.a11y .force-contrast {
+    color: var(--color-noir-900) !important;
+  }
+
   /* Premium Input */
   .input-premium {
     width: 100%;
@@ -684,5 +731,18 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

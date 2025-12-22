@@ -27,7 +27,7 @@ const whatsappMessages = {
   he: 'היי! אני מעוניין/ת ללמוד עוד על שירותי האוטומציה וה-AI שלכם.',
 }
 
-const WHATSAPP_NUMBER = '972501234567'
+const WHATSAPP_NUMBER = '972546813569'
 
 interface CTAProps {
   locale: Locale

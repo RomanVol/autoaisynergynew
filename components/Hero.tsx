@@ -168,7 +168,7 @@ export function Hero({ locale }: HeroProps) {
               <span className="block text-[clamp(3rem,8vw,6rem)] leading-[0.95] text-noir-800 dark:text-noir-100 transition-colors duration-500 mb-4">
                 {t.title}
               </span>
-              <span className="block text-[clamp(3rem,8vw,6rem)] leading-[0.95] text-liquid-gold-animated">
+              <span className="block text-[clamp(3rem,8vw,6rem)] leading-[1.05] pb-1 text-liquid-gold-animated">
                 {t.titleHighlight}
               </span>
             </h1>

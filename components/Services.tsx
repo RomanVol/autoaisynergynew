@@ -141,7 +141,7 @@ export function Services({ locale }: ServicesProps) {
             className="section-title mb-6"
           >
             <span className="text-white force-contrast">{t.title}</span>
-            <span className="text-liquid-gold whitespace-nowrap"> {t.titleHighlight}</span>
+            <span className="text-liquid-gold whitespace-normal sm:whitespace-nowrap"> {t.titleHighlight}</span>
           </motion.h2>
 
           <motion.p

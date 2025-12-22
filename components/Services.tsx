@@ -18,7 +18,7 @@ const translations = {
   en: {
     label: 'What We Build',
     title: 'AI Solutions That',
-    titleHighlight: 'Transform Operations',
+    titleHighlight: 'Transform Your Business',
     subtitle: 'Custom-built automation systems designed to solve real business challenges and deliver measurable ROI.',
     cta: 'Start Your Project',
     items: [

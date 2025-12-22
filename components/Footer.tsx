@@ -16,6 +16,7 @@ const translations = {
     careers: 'Careers',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
+    accessibility: 'Accessibility Statement',
     copyright: '© 2024 AutoAI Synergy. All rights reserved.',
     tagline: 'Built with AI, Delivered with Excellence',
     servicesLinks: [
@@ -36,6 +37,7 @@ const translations = {
     careers: 'קריירה',
     privacy: 'מדיניות פרטיות',
     terms: 'תנאי שימוש',
+    accessibility: 'הצהרת נגישות',
     copyright: '© 2024 AutoAI Synergy. כל הזכויות שמורות.',
     tagline: 'נבנה עם AI, מסופק עם מצוינות',
     servicesLinks: [
@@ -177,13 +179,27 @@ export function Footer({ locale }: FooterProps) {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
+                <Link
+                  href={`/${locale}/privacy`}
+                  className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body"
+                >
                   {t.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body">
+                <Link
+                  href={`/${locale}/terms`}
+                  className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body"
+                >
                   {t.terms}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/accessibility`}
+                  className="text-noir-500 dark:text-noir-400 hover:text-gold-500 dark:hover:text-gold-400 transition-colors text-sm font-body"
+                >
+                  {t.accessibility}
                 </Link>
               </li>
             </ul>

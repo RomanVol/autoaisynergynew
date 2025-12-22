@@ -25,11 +25,11 @@ const translations = {
     subtitle: 'We build intelligent AI systems that work 24/7—automating your operations, converting more leads, and freeing your team to focus on what matters.',
     cta: 'Book Free Strategy Call',
     ctaSecondary: 'Explore Solutions',
-    trusted: 'Trusted by forward-thinking businesses',
+    trusted: 'Trusted by Growing Companies',
     stats: {
       hours: { value: '500+', label: 'Hours Saved/Month' },
       roi: { value: '10x', label: 'Average ROI' },
-      clients: { value: '50+', label: 'Happy Clients' },
+      clients: { value: '10+', label: 'Years Experience' },
     },
   },
   he: {
@@ -39,11 +39,11 @@ const translations = {
     subtitle: 'אנחנו בונים מערכות AI חכמות שעובדות 24/7—אוטומציה לתפעול שלכם, המרת יותר לידים, ושחרור הצוות להתמקד במה שחשוב.',
     cta: 'קבעו שיחת אסטרטגיה חינם',
     ctaSecondary: 'גלו את הפתרונות',
-    trusted: 'נבחרו על ידי עסקים חדשניים',
+    trusted: 'נבחרו על ידי עסקים בצמיחה',
     stats: {
       hours: { value: '500+', label: 'שעות נחסכות/חודש' },
       roi: { value: '10x', label: 'ROI ממוצע' },
-      clients: { value: '50+', label: 'לקוחות מרוצים' },
+      clients: { value: '10+', label: 'שנות נסיון' },
     },
   },
 }
@@ -110,6 +110,7 @@ export function Hero({ locale }: HeroProps) {
               <div
                 className="absolute inset-0 blur-2xl scale-110 transition-opacity duration-500 logo-glow"
               />
+              <div className="logo-sparkle" aria-hidden="true" />
               {/* Logo image - inverts based on theme */}
               <Image
                 src="/logo_full.svg"

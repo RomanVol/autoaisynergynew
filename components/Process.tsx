@@ -95,7 +95,8 @@ export function Process({ locale }: ProcessProps) {
       className="section-container relative overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-noir-950 via-noir-900/50 to-noir-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F4EF] via-[#F5F2ED]/70 to-[#F7F4EF]
+                     dark:from-noir-950 dark:via-noir-900/50 dark:to-noir-950" />
 
       {/* Decorative blob */}
       <div className="absolute top-1/2 -translate-y-1/2 -right-[300px] w-[600px] h-[600px]

@@ -62,7 +62,7 @@ export function CTA({ locale }: CTAProps) {
                            animate-shimmer" style={{ backgroundSize: '200% 100%' }} />
 
             <div className="relative bg-noir-800 rounded-3xl p-10 md:p-16 text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-noir-50 mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-noir-900 dark:text-noir-50 mb-6">
                 {t.title}
               </h2>
 

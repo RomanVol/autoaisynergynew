@@ -793,6 +793,19 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Light theme: soften noir backgrounds */
+  .light .bg-noir-950 { background-color: #F7F4EF; }
+  .light .bg-noir-900 { background-color: #F5F2ED; }
+  .light .bg-noir-800 { background-color: #F0EDE6; }
+  .light .bg-noir-700 { background-color: #E8E4DD; }
+
+  .light .bg-noir-900\/50 { background-color: rgba(245, 242, 237, 0.6); }
+  .light .bg-noir-800\/30 { background-color: rgba(240, 237, 230, 0.55); }
+  .light .bg-noir-800\/50 { background-color: rgba(240, 237, 230, 0.7); }
+  .light .bg-noir-800\/95 { background-color: rgba(240, 237, 230, 0.95); }
+  .light .bg-noir-700\/50 { background-color: rgba(232, 228, 221, 0.6); }
+  .light .bg-noir-700\/60 { background-color: rgba(232, 228, 221, 0.75); }
 }
 
 @media (prefers-reduced-motion: reduce) {

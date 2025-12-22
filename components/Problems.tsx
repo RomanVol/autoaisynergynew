@@ -73,9 +73,10 @@ export function Problems({ locale }: ProblemsProps) {
   const isRTL = dir === 'rtl'
 
   return (
-    <section className="section-container relative overflow-hidden bg-noir-900/50">
+    <section className="section-container relative overflow-hidden bg-[#F5F2ED]/70 dark:bg-noir-900/50">
       {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-noir-950 via-noir-900/50 to-noir-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F4EF] via-[#F5F2ED]/70 to-[#F7F4EF]
+                     dark:from-noir-950 dark:via-noir-900/50 dark:to-noir-950" />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -98,7 +99,7 @@ export function Problems({ locale }: ProblemsProps) {
             transition={{ delay: 0.1 }}
             className="section-title"
           >
-            <span className="text-white">{t.title}</span>
+            <span className="text-noir-900 dark:text-white">{t.title}</span>
             <span className="text-red-400"> {t.titleHighlight}</span>
           </motion.h2>
         </div>
@@ -124,7 +125,7 @@ export function Problems({ locale }: ProblemsProps) {
                     <IconComponent className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-display font-semibold text-noir-100 mb-2">
+                    <h3 className="text-lg font-display font-semibold text-noir-900 dark:text-noir-100 mb-2">
                       {problem.title}
                     </h3>
                     <p className="text-noir-400 text-sm leading-relaxed font-body">

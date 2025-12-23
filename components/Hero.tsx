@@ -20,7 +20,7 @@ const floatingLogos = [
 const translations = {
   en: {
     badge: {
-      top: '10+ Years Experience',
+      top: '10+ Years of',
       bottom: 'Proven Experience',
     },
     title: 'Stop Losing Time.',

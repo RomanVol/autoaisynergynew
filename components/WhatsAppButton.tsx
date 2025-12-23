@@ -141,7 +141,7 @@ export function WhatsAppButton({ locale }: WhatsAppButtonProps) {
                 setShowTooltip(false)
               }
             }}
-            className="relative flex items-center justify-center w-16 h-16
+            className="relative flex items-center justify-center w-16 h-16 transform-gpu
                       bg-gradient-to-br from-green-500 to-green-600
                       rounded-2xl shadow-lg shadow-green-500/25
                       hover:shadow-xl hover:shadow-green-500/35
@@ -150,8 +150,6 @@ export function WhatsAppButton({ locale }: WhatsAppButtonProps) {
             aria-label="Contact on WhatsApp"
             aria-describedby={showTooltip ? tooltipId : undefined}
           >
-            {/* Pulse ring */}
-            <span className="absolute inset-0 rounded-2xl bg-green-500 animate-ping opacity-20" />
             <MessageCircle className="w-7 h-7 text-white relative z-10" />
           </a>
         </motion.div>

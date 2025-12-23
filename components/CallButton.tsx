@@ -43,7 +43,7 @@ export function CallButton({ locale }: CallButtonProps) {
         >
           <a
             href={`tel:${phoneHref}`}
-            className="relative flex items-center justify-center w-16 h-16
+            className="relative flex items-center justify-center w-16 h-16 transform-gpu
                       rounded-2xl border border-blue-400/30
                       bg-blue-500/15 backdrop-blur
                       shadow-lg shadow-blue-500/20
@@ -51,7 +51,6 @@ export function CallButton({ locale }: CallButtonProps) {
                       hover:scale-105 transition-all duration-300"
             aria-label={t.label}
           >
-            <span className="absolute inset-0 rounded-2xl bg-blue-400/20 animate-ping" />
             <Phone className="w-7 h-7 text-white relative z-10" />
           </a>
         </motion.div>

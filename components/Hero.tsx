@@ -274,7 +274,7 @@ export function Hero({ locale }: HeroProps) {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-              <p className="text-sm text-noir-500 dark:text-noir-400 uppercase tracking-widest font-display whitespace-nowrap transition-colors duration-500">
+              <p className="text-sm text-white uppercase tracking-widest font-display whitespace-nowrap transition-colors duration-500">
                 {t.trusted}
               </p>
 
@@ -290,7 +290,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.hours.value}
                     </div>
-                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
+                    <div className="text-sm text-white transition-colors duration-500">
                       {t.stats.hours.label}
                     </div>
                   </div>
@@ -305,7 +305,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.roi.value}
                     </div>
-                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
+                    <div className="text-sm text-white transition-colors duration-500">
                       {t.stats.roi.label}
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.clients.value}
                     </div>
-                    <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
+                    <div className="text-sm text-white transition-colors duration-500">
                       {t.stats.clients.label}
                     </div>
                   </div>

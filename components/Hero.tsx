@@ -70,6 +70,8 @@ export function Hero({ locale }: HeroProps) {
   const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
   const reduceMotion = useReducedMotion()
+  const trustedLabelClass = safeLocale === 'en' ? 'text-white' : 'text-noir-900 dark:text-white'
+  const statsLabelClass = trustedLabelClass
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') {
       return false
@@ -274,7 +276,7 @@ export function Hero({ locale }: HeroProps) {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-              <p className="text-sm text-white uppercase tracking-widest font-display whitespace-nowrap transition-colors duration-500">
+              <p className={`text-sm uppercase tracking-widest font-display whitespace-nowrap transition-colors duration-500 ${trustedLabelClass}`}>
                 {t.trusted}
               </p>
 
@@ -290,7 +292,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.hours.value}
                     </div>
-                    <div className="text-sm text-white transition-colors duration-500">
+                    <div className={`text-sm transition-colors duration-500 ${statsLabelClass}`}>
                       {t.stats.hours.label}
                     </div>
                   </div>
@@ -305,7 +307,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.roi.value}
                     </div>
-                    <div className="text-sm text-white transition-colors duration-500">
+                    <div className={`text-sm transition-colors duration-500 ${statsLabelClass}`}>
                       {t.stats.roi.label}
                     </div>
                   </div>
@@ -320,7 +322,7 @@ export function Hero({ locale }: HeroProps) {
                     <div className="text-2xl font-display font-semibold text-liquid-gold">
                       {t.stats.clients.value}
                     </div>
-                    <div className="text-sm text-white transition-colors duration-500">
+                    <div className={`text-sm transition-colors duration-500 ${statsLabelClass}`}>
                       {t.stats.clients.label}
                     </div>
                   </div>

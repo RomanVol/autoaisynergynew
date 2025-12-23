@@ -408,10 +408,10 @@ export function Contact({ locale }: ContactProps) {
                       <Mail className="w-5 h-5 text-gold-400" />
                     </div>
                     <div>
-                      <div className="font-display font-medium text-white/90 transition-colors duration-500">
+                      <div className="font-display font-medium text-noir-900 dark:text-white/90 transition-colors duration-500">
                         {t.direct.email}
                       </div>
-                      <div className="text-sm font-light text-white/70 transition-colors duration-500" dir="ltr">
+                      <div className="text-sm font-light text-noir-900 dark:text-white/70 transition-colors duration-500" dir="ltr">
                         {EMAIL}
                       </div>
                     </div>
@@ -426,7 +426,7 @@ export function Contact({ locale }: ContactProps) {
                     <div className="w-12 h-12 rounded-xl bg-noir-300/50 dark:bg-noir-600/30 flex items-center justify-center transition-colors duration-500">
                       <Phone className="w-5 h-5 text-noir-500 dark:text-noir-300 transition-colors duration-500" />
                     </div>
-                    <div className="font-display text-lg md:text-xl font-bold text-white transition-colors duration-500" dir="ltr">
+                    <div className="font-display text-lg md:text-xl font-bold text-noir-900 dark:text-white transition-colors duration-500" dir="ltr">
                       {phoneDisplay}
                     </div>
                   </a>

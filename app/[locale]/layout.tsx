@@ -112,7 +112,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo_full.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"

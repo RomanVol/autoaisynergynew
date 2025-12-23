@@ -16,14 +16,14 @@ const translations = {
     process: 'Process',
     testimonials: 'Results',
     contact: 'Contact',
-    bookCall: 'Book a Call',
+    bookCall: 'Book a Friendly Call',
   },
   he: {
     services: 'שירותים',
     process: 'תהליך',
     testimonials: 'תוצאות',
     contact: 'צור קשר',
-    bookCall: 'קבע שיחה',
+    bookCall: 'קבע שיחה ידידותית',
   },
 }
 

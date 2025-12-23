@@ -127,10 +127,10 @@ export default async function LocaleLayout({
             </a>
 
             {/* Noise texture overlay */}
-            <div className="noise-overlay" aria-hidden="true" />
+            <div className="noise-overlay hidden md:block" aria-hidden="true" />
 
             {/* Grid pattern background */}
-            <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40" aria-hidden="true" />
+            <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40 hidden md:block" aria-hidden="true" />
 
             <Header locale={locale} />
             <main id="main-content" className="relative z-10">

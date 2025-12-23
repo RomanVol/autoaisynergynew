@@ -836,3 +836,26 @@
     scroll-behavior: auto !important;
   }
 }
+
+@media (max-width: 768px) {
+  .floating-logo-img {
+    animation: none !important;
+  }
+
+  .dark .floating-logo-img {
+    animation: none !important;
+  }
+
+  .logo-sparkle {
+    display: none;
+  }
+
+  .logo-sparkle::before,
+  .logo-sparkle::after {
+    animation: none !important;
+  }
+
+  .logo-glow {
+    display: none;
+  }
+}

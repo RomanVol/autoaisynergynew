@@ -77,7 +77,7 @@ export function Hero({ locale }: HeroProps) {
     return window.matchMedia('(max-width: 768px)').matches
   })
   const containerRef = useRef<HTMLElement>(null)
-  const disableLogoMotion = reduceMotion || isMobile
+  const disableHeroMotion = reduceMotion || isMobile
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -132,7 +132,7 @@ export function Hero({ locale }: HeroProps) {
               height: logo.size,
             }}
             initial={
-              disableLogoMotion
+              disableHeroMotion
                 ? false
                 : {
                     opacity: 0,
@@ -141,7 +141,7 @@ export function Hero({ locale }: HeroProps) {
                   }
             }
             animate={
-              disableLogoMotion
+              disableHeroMotion
                 ? { opacity: 0.25, scale: 1, rotate: logo.rotation, y: 0 }
                 : {
                     opacity: [0.15, 0.3, 0.15],
@@ -151,7 +151,7 @@ export function Hero({ locale }: HeroProps) {
                   }
             }
             transition={
-              disableLogoMotion
+              disableHeroMotion
                 ? { duration: 0 }
                 : {
                     duration: logo.duration,
@@ -182,23 +182,23 @@ export function Hero({ locale }: HeroProps) {
 
         {/* Additional ambient glow orbs for atmosphere */}
         <motion.div
-          className="absolute w-[600px] h-[600px] -top-[200px] -left-[200px] rounded-full dark:bg-gold-400/10 bg-gold-400/5 blur-[100px]"
-          animate={reduceMotion ? { scale: 1, opacity: 0.3 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={reduceMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute w-[600px] h-[600px] -top-[200px] -left-[200px] rounded-full dark:bg-gold-400/10 bg-gold-400/5 blur-[100px] hidden md:block"
+          animate={disableHeroMotion ? { scale: 1, opacity: 0.3 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={disableHeroMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute w-[500px] h-[500px] top-[40%] -right-[150px] rounded-full dark:bg-amber-400/10 bg-amber-400/5 blur-[80px]"
-          animate={reduceMotion ? { scale: 1, opacity: 0.3 } : { scale: [1.1, 1, 1.1], opacity: [0.4, 0.2, 0.4] }}
-          transition={reduceMotion ? { duration: 0 } : { duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute w-[500px] h-[500px] top-[40%] -right-[150px] rounded-full dark:bg-amber-400/10 bg-amber-400/5 blur-[80px] hidden md:block"
+          animate={disableHeroMotion ? { scale: 1, opacity: 0.3 } : { scale: [1.1, 1, 1.1], opacity: [0.4, 0.2, 0.4] }}
+          transition={disableHeroMotion ? { duration: 0 } : { duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </div>
 
       {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-50 dark:opacity-50" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-50 dark:opacity-50 hidden md:block" />
 
       {/* Content Container */}
       <motion.div
-        style={reduceMotion ? undefined : { y, opacity }}
+        style={disableHeroMotion ? undefined : { y, opacity }}
         className="container mx-auto px-6 lg:px-8 relative z-10 pt-32 pb-20"
       >
         <div className={`max-w-6xl mx-auto ${isRTL ? 'text-right' : 'text-left'}`}>

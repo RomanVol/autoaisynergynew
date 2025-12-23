@@ -3,6 +3,7 @@ import { languages, Locale, localeDirections } from '@/lib/i18n/settings'
 import { getTranslation } from '@/lib/i18n'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { CallButton } from '@/components/CallButton'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { MotionProvider } from '@/components/MotionProvider'
@@ -136,6 +137,7 @@ export default async function LocaleLayout({
               {children}
             </main>
             <Footer locale={locale} />
+            <CallButton locale={locale} />
             <WhatsAppButton locale={locale} />
           </MotionProvider>
         </ThemeProvider>

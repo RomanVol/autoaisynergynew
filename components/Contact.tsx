@@ -95,6 +95,7 @@ export function Contact({ locale }: ContactProps) {
   const isRTL = dir === 'rtl'
 
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [formError, setFormError] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -116,9 +117,36 @@ export function Contact({ locale }: ContactProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setFormState('submitting')
+    setFormError('')
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const payload = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        const errorMessage = typeof payload?.error === 'string' ? payload.error : t.form.error
+        setFormError(errorMessage)
+        if (payload?.code === 'EMAIL_NOT_CONFIGURED') {
+          const subject = encodeURIComponent(`New inquiry from ${formData.name || 'Website'}`)
+          const body = encodeURIComponent(
+            [
+              `Name: ${formData.name}`,
+              `Email: ${formData.email}`,
+              `Company: ${formData.company || 'N/A'}`,
+              `Service: ${formData.service || 'N/A'}`,
+              '',
+              formData.message,
+            ].join('\n')
+          )
+          window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`
+        }
+        throw new Error(errorMessage)
+      }
       setFormState('success')
       setFormData({ name: '', email: '', company: '', service: '', message: '' })
       setTimeout(() => setFormState('idle'), 5000)
@@ -320,7 +348,7 @@ export function Contact({ locale }: ContactProps) {
                         className={`flex items-center gap-2 text-red-400 font-display ${isRTL ? 'flex-row-reverse' : ''}`}
                       >
                         <AlertCircle className="w-5 h-5" />
-                        <span>{t.form.error}</span>
+                        <span>{formError || t.form.error}</span>
                       </motion.div>
                     )}
                   </div>

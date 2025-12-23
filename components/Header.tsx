@@ -34,8 +34,9 @@ interface HeaderProps {
 export function Header({ locale }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const t = translations[locale]
-  const dir = localeDirections[locale]
+  const safeLocale = (locale in translations ? locale : 'en') as Locale
+  const t = translations[safeLocale]
+  const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export function Header({ locale }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const basePath = `/${locale}`
+  const basePath = `/${safeLocale}`
   const navLinks = [
     { href: `${basePath}#services`, label: t.services },
     { href: `${basePath}#process`, label: t.process },

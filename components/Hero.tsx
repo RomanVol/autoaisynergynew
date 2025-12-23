@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Sparkles, Zap, Users, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -69,6 +69,7 @@ export function Hero({ locale }: HeroProps) {
   const t = translations[safeLocale]
   const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
+  const reduceMotion = useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -99,23 +100,35 @@ export function Hero({ locale }: HeroProps) {
               width: logo.size,
               height: logo.size,
             }}
-            initial={{
-              opacity: 0,
-              scale: 0.8,
-              rotate: logo.rotation
-            }}
-            animate={{
-              opacity: [0.15, 0.3, 0.15],
-              scale: [1, 1.05, 1],
-              rotate: [logo.rotation, logo.rotation + 5, logo.rotation],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: logo.duration,
-              delay: logo.delay,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    scale: 0.8,
+                    rotate: logo.rotation,
+                  }
+            }
+            animate={
+              reduceMotion
+                ? { opacity: 0.25, scale: 1, rotate: logo.rotation, y: 0 }
+                : {
+                    opacity: [0.15, 0.3, 0.15],
+                    scale: [1, 1.05, 1],
+                    rotate: [logo.rotation, logo.rotation + 5, logo.rotation],
+                    y: [0, -20, 0],
+                  }
+            }
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : {
+                    duration: logo.duration,
+                    delay: logo.delay,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }
+            }
           >
             {/* Logo with glow effect for dark mode, shadow for light mode */}
             <div className="relative w-full h-full floating-logo-container">
@@ -139,13 +152,13 @@ export function Hero({ locale }: HeroProps) {
         {/* Additional ambient glow orbs for atmosphere */}
         <motion.div
           className="absolute w-[600px] h-[600px] -top-[200px] -left-[200px] rounded-full dark:bg-gold-400/10 bg-gold-400/5 blur-[100px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          animate={reduceMotion ? { scale: 1, opacity: 0.3 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute w-[500px] h-[500px] top-[40%] -right-[150px] rounded-full dark:bg-amber-400/10 bg-amber-400/5 blur-[80px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.2, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          animate={reduceMotion ? { scale: 1, opacity: 0.3 } : { scale: [1.1, 1, 1.1], opacity: [0.4, 0.2, 0.4] }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </div>
 
@@ -154,7 +167,7 @@ export function Hero({ locale }: HeroProps) {
 
       {/* Content Container */}
       <motion.div
-        style={{ y, opacity }}
+        style={reduceMotion ? undefined : { y, opacity }}
         className="container mx-auto px-6 lg:px-8 relative z-10 pt-32 pb-20"
       >
         <div className={`max-w-6xl mx-auto ${isRTL ? 'text-right' : 'text-left'}`}>

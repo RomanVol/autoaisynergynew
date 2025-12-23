@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { Send, MessageCircle, Mail, MapPin, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
+import { Send, MessageCircle, Mail, Phone, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 import { Locale, localeDirections } from '@/lib/i18n/settings'
 
 const translations = {
@@ -112,7 +112,8 @@ export function Contact({ locale }: ContactProps) {
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.whatsappMessage)}`
   const whatsappDisplay = locale === 'he' ? '0546813569' : '+972546813569'
-  const locationCountry = locale === 'he' ? 'ישראל' : 'Israel'
+  const phoneDisplay = whatsappDisplay
+  const phoneHref = `+${WHATSAPP_NUMBER}`
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -407,30 +408,28 @@ export function Contact({ locale }: ContactProps) {
                       <Mail className="w-5 h-5 text-gold-400" />
                     </div>
                     <div>
-                      <div className="font-display font-semibold text-noir-800 dark:text-noir-100 transition-colors duration-500">
+                      <div className="font-display font-medium text-white/90 transition-colors duration-500">
                         {t.direct.email}
                       </div>
-                      <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500" dir="ltr">
+                      <div className="text-sm font-light text-white/70 transition-colors duration-500" dir="ltr">
                         {EMAIL}
                       </div>
                     </div>
                   </a>
 
-                  {/* Location */}
-                  <div className={`flex items-center gap-4 p-4 rounded-2xl
-                                 bg-noir-200/50 dark:bg-noir-700/30 border border-noir-300/50 dark:border-noir-600/30 transition-colors duration-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {/* Phone */}
+                  <a
+                    href={`tel:${phoneHref}`}
+                    className={`flex items-center gap-4 p-4 rounded-2xl
+                               bg-blue-400/10 dark:bg-blue-400/10 border border-blue-400/20 dark:border-blue-400/25 transition-colors duration-500 ${isRTL ? 'flex-row-reverse' : ''}`}
+                  >
                     <div className="w-12 h-12 rounded-xl bg-noir-300/50 dark:bg-noir-600/30 flex items-center justify-center transition-colors duration-500">
-                      <MapPin className="w-5 h-5 text-noir-500 dark:text-noir-300 transition-colors duration-500" />
+                      <Phone className="w-5 h-5 text-noir-500 dark:text-noir-300 transition-colors duration-500" />
                     </div>
-                    <div>
-                      <div className="font-display font-semibold text-noir-800 dark:text-noir-100 transition-colors duration-500">
-                        {t.direct.location}
-                      </div>
-                      <div className="text-sm text-noir-500 dark:text-noir-400 transition-colors duration-500">
-                        {locationCountry}
-                      </div>
+                    <div className="font-display text-lg md:text-xl font-bold text-white transition-colors duration-500" dir="ltr">
+                      {phoneDisplay}
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
 

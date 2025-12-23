@@ -491,10 +491,26 @@
     transition: background 0.3s ease, border-color 0.3s ease;
   }
 
+  .hero-badge {
+    cursor: pointer;
+  }
+
+  .hero-badge:hover,
+  .hero-badge:focus-visible {
+    background: rgba(245, 166, 35, 0.2);
+    border-color: rgba(245, 166, 35, 0.35);
+  }
+
   .light .section-label {
     background: rgba(245, 166, 35, 0.15);
     border: 1px solid rgba(245, 166, 35, 0.3);
     color: var(--color-gold-dark);
+  }
+
+  .light .hero-badge:hover,
+  .light .hero-badge:focus-visible {
+    background: rgba(245, 166, 35, 0.25);
+    border-color: rgba(245, 166, 35, 0.4);
   }
 
   .section-title {

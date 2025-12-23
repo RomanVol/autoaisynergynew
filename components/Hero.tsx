@@ -19,10 +19,16 @@ const floatingLogos = [
 
 const translations = {
   en: {
-    badge: 'AI-Powered Growth',
+    badge: {
+      top: '10+ Years Experience',
+      bottom: 'Proven Experience',
+    },
     title: 'Stop Losing Time.',
     titleHighlight: 'Start Scaling.',
-    subtitle: 'We build intelligent AI systems that work 24/7—automating your operations, converting more leads, and freeing your team to focus on what matters.',
+    subtitle: {
+      lead: 'We build intelligent AI',
+      rest: 'systems that work 24/7—automating your operations, converting more leads, and freeing your team to focus on what matters.',
+    },
     cta: 'Book Free Strategy Call',
     ctaSecondary: 'Explore Solutions',
     trusted: 'Trusted by Growing Companies',
@@ -33,10 +39,16 @@ const translations = {
     },
   },
   he: {
-    badge: 'צמיחה מונעת AI',
+    badge: {
+      top: '+10 שנות נסיון',
+      bottom: 'מוכח בארגונים מובילים',
+    },
     title: 'הפסיקו לבזבז זמן.',
-    titleHighlight: 'התחילו לצמוח.',
-    subtitle: 'אנחנו בונים מערכות AI חכמות שעובדות 24/7—אוטומציה לתפעול שלכם, המרת יותר לידים, ושחרור הצוות להתמקד במה שחשוב.',
+    titleHighlight: 'תתחילו לצמוח.',
+    subtitle: {
+      lead: 'אנחנו בונים מערכות AI',
+      rest: 'חכמות שעובדות 24/7—אוטומציה לתפעול שלכם, המרת יותר לידים, ושחרור הצוות להתמקד במה שחשוב.',
+    },
     cta: 'קבעו שיחת אסטרטגיה חינם',
     ctaSecondary: 'גלו את הפתרונות',
     trusted: 'נבחרו על ידי עסקים בצמיחה',
@@ -153,10 +165,16 @@ export function Hero({ locale }: HeroProps) {
             transition={{ duration: 0.6 }}
             className={`mb-8 ${isRTL ? 'flex justify-end' : ''}`}
           >
-            <span className="section-label">
+            <Link
+              href={`/${safeLocale}/about`}
+              className={`section-label hero-badge ${isRTL ? 'flex-row-reverse text-right' : ''}`}
+            >
               <Sparkles className="w-4 h-4" />
-              {t.badge}
-            </span>
+              <span className="flex flex-col leading-tight">
+                <span>{t.badge.top}</span>
+                <span>{t.badge.bottom}</span>
+              </span>
+            </Link>
           </motion.div>
 
           {/* Main Headline - Asymmetric Typography */}
@@ -183,7 +201,10 @@ export function Hero({ locale }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-noir-600 dark:text-noir-300 max-w-2xl leading-relaxed mb-12 font-body transition-colors duration-500"
           >
-            {t.subtitle}
+            <span className="font-semibold text-noir-500 dark:text-noir-200">
+              {t.subtitle.lead}
+            </span>{' '}
+            <span>{t.subtitle.rest}</span>
           </motion.p>
 
           {/* CTA Buttons */}

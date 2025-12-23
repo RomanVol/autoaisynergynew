@@ -4,7 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { ArrowRight, Sparkles, Zap, Users, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Locale, localeDirections } from '@/lib/i18n/settings'
 
 // Floating logo configuration for the animated background
@@ -70,7 +70,38 @@ export function Hero({ locale }: HeroProps) {
   const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
   const reduceMotion = useReducedMotion()
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+    return window.matchMedia('(max-width: 768px)').matches
+  })
   const containerRef = useRef<HTMLElement>(null)
+  const disableLogoMotion = reduceMotion || isMobile
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined
+    }
+    const media = window.matchMedia('(max-width: 768px)')
+    const handleChange = (event: MediaQueryListEvent) => setIsMobile(event.matches)
+
+    if (media.addEventListener) {
+      media.addEventListener('change', handleChange)
+    } else {
+      media.addListener(handleChange)
+    }
+
+    setIsMobile(media.matches)
+
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener('change', handleChange)
+      } else {
+        media.removeListener(handleChange)
+      }
+    }
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -101,7 +132,7 @@ export function Hero({ locale }: HeroProps) {
               height: logo.size,
             }}
             initial={
-              reduceMotion
+              disableLogoMotion
                 ? false
                 : {
                     opacity: 0,
@@ -110,7 +141,7 @@ export function Hero({ locale }: HeroProps) {
                   }
             }
             animate={
-              reduceMotion
+              disableLogoMotion
                 ? { opacity: 0.25, scale: 1, rotate: logo.rotation, y: 0 }
                 : {
                     opacity: [0.15, 0.3, 0.15],
@@ -120,7 +151,7 @@ export function Hero({ locale }: HeroProps) {
                   }
             }
             transition={
-              reduceMotion
+              disableLogoMotion
                 ? { duration: 0 }
                 : {
                     duration: logo.duration,

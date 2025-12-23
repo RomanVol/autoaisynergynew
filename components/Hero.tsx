@@ -70,7 +70,7 @@ export function Hero({ locale }: HeroProps) {
   const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
   const reduceMotion = useReducedMotion()
-  const trustedLabelClass = safeLocale === 'en' ? 'text-white' : 'text-noir-900 dark:text-white'
+  const trustedLabelClass = 'text-noir-900 dark:text-white'
   const statsLabelClass = trustedLabelClass
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') {

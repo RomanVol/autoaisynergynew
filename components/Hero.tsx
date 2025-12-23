@@ -40,8 +40,8 @@ const translations = {
   },
   he: {
     badge: {
-      top: '+10 שנות נסיון',
-      bottom: 'מוכח בארגונים מובילים',
+      top: '10+ שנות נסיון מוכח',
+      bottom: ' בארגונים מובילים',
     },
     title: 'הפסיקו לבזבז זמן.',
     titleHighlight: 'תתחילו לצמוח.',

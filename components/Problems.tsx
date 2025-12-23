@@ -68,8 +68,9 @@ interface ProblemsProps {
 }
 
 export function Problems({ locale }: ProblemsProps) {
-  const t = translations[locale]
-  const dir = localeDirections[locale]
+  const safeLocale = (locale in translations ? locale : 'en') as Locale
+  const t = translations[safeLocale]
+  const dir = localeDirections[safeLocale]
   const isRTL = dir === 'rtl'
 
   return (

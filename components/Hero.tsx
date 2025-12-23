@@ -12,9 +12,9 @@ const floatingLogos = [
   { id: 1, size: 280, x: '-15%', y: '-10%', duration: 25, delay: 0, rotation: 15 },
   { id: 2, size: 200, x: '75%', y: '15%', duration: 30, delay: 2, rotation: -10 },
   { id: 3, size: 160, x: '85%', y: '60%', duration: 28, delay: 4, rotation: 20 },
-  { id: 4, size: 220, x: '-5%', y: '70%', duration: 32, delay: 1, rotation: -15 },
+  { id: 4, size: 150, x: '15%', y: '40%', duration: 32, delay: 1, rotation: -5 },
   { id: 5, size: 120, x: '50%', y: '5%', duration: 22, delay: 3, rotation: 8 },
-  { id: 6, size: 100, x: '30%', y: '80%', duration: 26, delay: 5, rotation: -12 },
+  // { id: 6, size: 100, x: '30%', y: '80%', duration: 26, delay: 5, rotation: -12 },
 ]
 
 const translations = {

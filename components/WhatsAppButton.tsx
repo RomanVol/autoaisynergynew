@@ -142,9 +142,9 @@ export function WhatsAppButton({ locale }: WhatsAppButtonProps) {
               }
             }}
             className="relative flex items-center justify-center w-16 h-16 transform-gpu
-                      bg-gradient-to-br from-green-500 to-green-600
-                      rounded-2xl shadow-lg shadow-green-500/25
-                      hover:shadow-xl hover:shadow-green-500/35
+                      bg-green-500/20 border border-green-500/30
+                      rounded-2xl shadow-lg shadow-green-500/20
+                      hover:shadow-xl hover:shadow-green-500/30
                       hover:scale-105 transition-all duration-300
                       group"
             aria-label="Contact on WhatsApp"

@@ -493,6 +493,7 @@
 
   .hero-badge {
     cursor: pointer;
+    animation: badge-pulse 2s ease-in-out infinite;
   }
 
   .hero-badge:hover,
@@ -752,6 +753,15 @@
   @keyframes scroll-bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
     50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+  }
+
+  @keyframes badge-pulse {
+    0%, 100% {
+      box-shadow: 0 0 8px rgba(245, 166, 35, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(245, 166, 35, 0.6);
+    }
   }
 
   /* Magnetic hover effect container */

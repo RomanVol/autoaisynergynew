@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { languages, Locale, localeDirections } from '@/lib/i18n/settings'
 import { getTranslation } from '@/lib/i18n'
 import { Header } from '@/components/Header'
@@ -120,6 +121,18 @@ export default async function LocaleLayout({
         />
       </head>
       <body className={`${dir === 'rtl' ? 'font-hebrew' : 'font-body'}`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4L6HW8C8X5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4L6HW8C8X5');
+          `}
+        </Script>
         <ThemeProvider>
           <MotionProvider>
             <a href="#main-content" className="skip-link">

@@ -6,7 +6,7 @@ export function N8nTrigger() {
   useEffect(() => {
     const triggerN8n = async () => {
       try {
-        await fetch('https://n8n.srv1221368.hstgr.cloud/webhook-test/visitor', {
+        await fetch('https://n8n.srv1221368.hstgr.cloud/webhook/visitor', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

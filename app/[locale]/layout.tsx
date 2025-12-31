@@ -8,6 +8,7 @@ import { CallButton } from '@/components/CallButton'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { MotionProvider } from '@/components/MotionProvider'
+import { N8nTrigger } from '@/components/N8nTrigger'
 
 export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }))
@@ -136,6 +137,7 @@ export default async function LocaleLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+        <N8nTrigger />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4L6HW8C8X5"
           strategy="afterInteractive"
